@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Server-Side DataTable</title>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myDataTable').DataTable({
+                "serverSide": true,
+                "bProcessing": true,
+
+
+                "info": true,
+                "ajax": {
+                    "url": "server.php",
+                    "type": "POST"
+                },
+                "columns": [{
+                    "data": "id"
+                }, {
+                    "data": "name"
+                }, {
+                    "data": "email"
+                }, {
+                    "data": "phone"
+                }],
+
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <table id="myDataTable" class="display" style="width:100%"></table>
+</body>
+
+</html>
